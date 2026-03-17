@@ -158,6 +158,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--setup", choices=tuple(APP_BY_KEY), help="Setup one app")
     parser.add_argument("--setup-all", action="store_true", help="Setup all apps")
     parser.add_argument("--run", choices=tuple(APP_BY_KEY), help="Run one app")
+    parser.add_argument(
+        "--auto",
+        choices=tuple(APP_BY_KEY),
+        help="One-command flow: install system deps, setup selected app, then run it",
+    )
 
     return parser.parse_args()
 
@@ -180,7 +185,11 @@ def main() -> None:
     if args.run:
         run_app(args.run, args.workspace)
 
-    if not any((args.list, args.setup_all, args.setup, args.run)):
+    if args.auto:
+        setup_apps((args.auto,), args.workspace)
+        run_app(args.auto, args.workspace)
+
+    if not any((args.list, args.setup_all, args.setup, args.run, args.auto)):
         print("No action requested. Try --help")
 
 
