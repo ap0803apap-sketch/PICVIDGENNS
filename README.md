@@ -11,11 +11,11 @@ Python launcher for a **single-cell Google Colab workflow** that clones and runs
 
 ## One-cell Colab automation (recommended)
 
-Run **one Colab cell** (replace GitHub URL with your repo URL):
+Run **one Colab cell** (replace only `YOUR_GITHUB_USERNAME` with your actual GitHub username):
 
 ```python
-!git clone https://github.com/<your-user>/<your-repo>.git && \
-cd <your-repo> && \
+!git clone https://github.com/YOUR_GITHUB_USERNAME/PICVIDGENNS.git && \
+cd PICVIDGENNS && \
 python colab_local_nsfw_editor.py --auto heartsync_nsfw_video2
 ```
 
@@ -32,7 +32,7 @@ This does everything automatically:
 Use this format (replace placeholders):
 
 ```text
-https://colab.research.google.com/github/<your-user>/<your-repo>/blob/<branch>/<notebook>.ipynb
+https://colab.research.google.com/github/YOUR_GITHUB_USERNAME/PICVIDGENNS/blob/main/<notebook>.ipynb
 ```
 
 ## App keys (for `--auto`, `--setup`, `--run`)
